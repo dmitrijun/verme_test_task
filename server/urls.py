@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tree_serializer', include("tree_serializer.urls"))
+    path('tree_serializer/', include("tree_serializer.urls"))
 ]
