@@ -15,5 +15,12 @@ class Tree(models.Model):
     def parent_pk(self):
         if self.parent:
             return self.parent.pk
-        
+
         return None
+
+    def to_dict(self):
+        return {
+            "id": self.pk,
+            "name": self.name,
+            "parent": self.parent_pk
+        }
