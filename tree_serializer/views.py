@@ -16,15 +16,16 @@ def bypass_tree(node_pk: int):
 
 def get_tree(request):
     """
-        Returns tree node list
+        Returns tree serialization
     """
-    records = Tree.objects.all()
-    serializable_records = [item.to_dict() for item in records]
+    tree_serialization = [bypass_tree(item.pk)
+                          for item in Tree.objects.filter(parent=None)]
+    return HttpResponse(json.dumps(tree_serialization), content_type="application/json")
 
 
 def get_subtree(request, node_pk):
     """
-        Returns Tree node by key
+        Returns node subtree serialization
     """
     subtree_serialization = bypass_tree(node_pk)
     return HttpResponse(json.dumps(subtree_serialization), content_type="application/json")
