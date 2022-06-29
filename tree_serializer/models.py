@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Tree(models.Model):
     parent = models.ForeignKey('self', models.CASCADE, null=True, blank=True,
@@ -23,4 +21,10 @@ class Tree(models.Model):
             "id": self.pk,
             "name": self.name,
             "parent": self.parent_pk
+        }
+
+    def to_short_dict(self):
+        return {
+            "id": self.pk,
+            "name": self.name,
         }
