@@ -1,9 +1,7 @@
 import json
-from re import T
 from django.http import HttpResponse
-from django.shortcuts import get_list_or_404, render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from .models import Tree
-# Create your views here.
 
 
 def bypass_tree(node_pk: int):
