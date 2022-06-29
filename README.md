@@ -9,6 +9,11 @@
 ```bash
     pip install -r requirements.txt
 ```
+Затем применить миграции:
+```bash
+    python3 manage.py migrate
+```
+
 Чтобы запустить сервер:
 ```bash
     python3 manage.py runserver
