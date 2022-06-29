@@ -18,7 +18,7 @@ def get_tree(request):
     """
     tree_serialization = [bypass_tree(item.pk)
                           for item in Tree.objects.filter(parent=None)]
-    return HttpResponse(json.dumps(tree_serialization), content_type="application/json")
+    return HttpResponse(json.dumps(tree_serialization, indent=4), content_type="application/json")
 
 
 def get_subtree(request, node_pk):
@@ -26,4 +26,4 @@ def get_subtree(request, node_pk):
         Returns node subtree serialization
     """
     subtree_serialization = bypass_tree(node_pk)
-    return HttpResponse(json.dumps(subtree_serialization), content_type="application/json")
+    return HttpResponse(json.dumps(subtree_serialization, indent=4), content_type="application/json")
