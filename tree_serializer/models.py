@@ -24,3 +24,9 @@ class Tree(models.Model):
             "name": self.name,
             "parent": self.parent_pk
         }
+
+    def to_short_dict(self):
+        return {
+            "id": self.pk,
+            "name": self.name,
+        }
